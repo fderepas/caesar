@@ -1,43 +1,13 @@
-#include <stdlib.h>
+/* \brief Encrypt a string with a right shift specified by the user
+   \param [in] str The string to encrypt
+   \param [in] d The right shift to perform
+   \return The pointer to the encrypted string
+*/
+char *encrypt(char *str, int d);
 
-int absolute_int(int x)
-{
-    int abs_x;
-    if (x < 0)
-        abs_x = -x;
-    else
-        abs_x = x;
-    return abs_x;
-}
-
-char *encrypt(char *str, int d)
-{
-    int shift = absolute_int(d);
-    int i = 0;
-    char *buf = (char *)malloc(33);
-
-    while (*str) {
-        /* Spaces are not encrypted. */
-        buf[i] = *str == ' ' ? ' ' : *str + (char)shift;
-        i++;
-        str++;
-    }
-    buf[i] = '\0';
-    return buf;
-}
-
-char *decrypt(char *str, int d)
-{
-    int shift = absolute_int(d);
-    int i = 0;
-    char *buf = (char *)malloc(33);
-
-    while (*str) {
-        /* Spaces are not decrypted. */
-        buf[i] = *str == ' ' ? ' ' : *str - (char)shift;
-        i++;
-        str++;
-    }
-    buf[i] = '\0';
-    return buf;
-}
+/* \brief Decrypt a string with a left shift specified by the user
+   \param [in] str The string to decrypt
+   \param [in] d The left shift to perform
+   \return The pointer to the decrypted string
+*/
+char *decrypt(char *str, int d);
