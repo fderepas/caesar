@@ -8,14 +8,14 @@ void gen_test(int user_shift, int len, char *str) {
   
   printf("Encrypt text '%s'\n", str);
   res1 = encrypt(str, len, user_shift);
-  if (!res1) return;
 
-  printf("Decrypt text '%s'\n", res1);
-  res2 = decrypt(res1, len, user_shift);
-  if (!res2) return;
-  
-  free(res1);
-  free(res2);
+  if (res1) {
+    printf("Decrypt text '%s'\n", res1);
+    res2 = decrypt(res1, len, user_shift);
+    if (res2)
+      free(res2);  
+    free(res1);
+  }
 }
 
 int main(void) {
