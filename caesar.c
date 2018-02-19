@@ -12,12 +12,12 @@ int absolute_int(int x) {
 char *encrypt(char *str, int d) {
   int shift = absolute_int(d);
   int i = 0;
-  char *buf = (char *)malloc(33);
+  char * buf = (char *)malloc(33);
   
   if (buf) {
     while (str[i]) {
       /* Spaces are not encrypted. */
-      buf[i] = str[i] == ' ' ? ' ' : str[i] + (char)shift;
+      buf[i] = (str[i] == ' ' ? ' ' : str[i] + (char)shift);
       i++;
     }
     buf[i] = '\0';
@@ -33,9 +33,8 @@ char *decrypt(char *str, int d) {
   if (buf) {
     while (str[i]) {
       /* Spaces are not decrypted. */
-      buf[i] = str[i] == ' ' ? ' ' : str[i] - (char)shift;
+      buf[i] = ( str[i] == ' ' ? ' ' : str[i] - (char)shift);
       i++;
-      str++;
     }
     buf[i] = '\0';
   }
