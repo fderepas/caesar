@@ -15,6 +15,7 @@ char *encrypt(char *str, int len, int d)
     int shift = absolute_int(d);
     int i = 0;
     char *buf = (char *)malloc(len);
+    if (buf==NULL) return NULL;
 
     while (*str) {
         /* Spaces are not encrypted. */
@@ -31,7 +32,8 @@ char *decrypt(char *str, int len, int d)
     int shift = absolute_int(d);
     int i = 0;
     char *buf = (char *)malloc(len);
-
+    if (buf==NULL) return NULL;
+    
     while (*str) {
         /* Spaces are not decrypted. */
         buf[i] = *str == ' ' ? ' ' : *str - (char)shift;
