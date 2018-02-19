@@ -5,12 +5,9 @@ int absolute_int(int x)
 {
     int abs_x;
     if (x < 0)
-        if (x == INT_MIN)
-            abs_x = 42;
-        else
-            abs_x = -x;
+      abs_x = -x;
     else
-        abs_x = x;
+      abs_x = x;
     return abs_x;
 }
 
