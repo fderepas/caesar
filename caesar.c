@@ -5,12 +5,9 @@ int absolute_int(int x)
 {
     int abs_x;
     if (x < 0)
-        if (x == INT_MIN)
-            abs_x = 42;
-        else
-            abs_x = -x;
+      abs_x = -x;
     else
-        abs_x = x;
+      abs_x = x;
     return abs_x;
 }
 
@@ -20,13 +17,14 @@ char *encrypt(char *str, int len, int d)
     int i = 0;
     char *buf = (char *)malloc(len);
 
-    while (*str) {
+    if (buf) {
+      while (i<len-1) {
         /* Spaces are not encrypted. */
-        buf[i] = *str == ' ' ? ' ' : *str + (char)shift;
+        buf[i] = str[i] == ' ' ? ' ' : str[i] + (char)shift;
         i++;
-        str++;
+      }
+      buf[i] = '\0';
     }
-    buf[i] = '\0';
     return buf;
 }
 
@@ -36,12 +34,13 @@ char *decrypt(char *str, int len, int d)
     int i = 0;
     char *buf = (char *)malloc(len);
 
-    while (*str) {
+    if (buf) {
+      while (i<len-1) {
         /* Spaces are not decrypted. */
-        buf[i] = *str == ' ' ? ' ' : *str - (char)shift;
+        buf[i] = str[i] == ' ' ? ' ' : str[i] - (char)shift;
         i++;
-        str++;
+      }
+      buf[i] = '\0';
     }
-    buf[i] = '\0';
     return buf;
 }

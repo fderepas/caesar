@@ -15,8 +15,8 @@ cov:
 
 .PHONY: tis
 tis:
-	@echo -e "\\x1b[00;36mtis-analyzer-gui -cpp-extra-args=\"-I.\" -val -slevel 100 caesar.c main.c\\x1b[00m"
-	@tis-analyzer-gui -cpp-extra-args="-I." -val -slevel 100 caesar.c main.c
+	@echo -e "\\x1b[00;36mtis-analyzer-gui -cpp-extra-args=\"-I.\" -val -slevel 1100 caesar.c main.c\\x1b[00m"
+	@tis-analyzer-gui -cpp-extra-args="-I." -val -slevel 1100 caesar.c main.c
 
 .PHONY: clean
 clean:
